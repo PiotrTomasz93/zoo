@@ -2,7 +2,6 @@ package com.tomaszpiotr.zoo.controller;
 
 import com.tomaszpiotr.zoo.model.*;
 import com.tomaszpiotr.zoo.service.ZoneService;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +14,7 @@ public class ZoneController {
     @Autowired
     private ZoneService zoneService;
 
-    @PostMapping("/zone")
+    @PostMapping("/zone") //{"name":"lake"}
     public ResponseEntity<String> addZone(@RequestBody Zone zone){
         System.out.println("service zone: " + zone);
         zoneService.save(zone);

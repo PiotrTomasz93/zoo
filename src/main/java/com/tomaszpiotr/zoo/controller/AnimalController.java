@@ -2,7 +2,6 @@ package com.tomaszpiotr.zoo.controller;
 
 import com.tomaszpiotr.zoo.model.*;
 import com.tomaszpiotr.zoo.service.AnimalService;
-import com.tomaszpiotr.zoo.service.ZoneService;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -34,21 +33,21 @@ public class AnimalController {
         return "Welcome in Zoo application";
     }
 
-    @PostMapping(value = "/elephant")
+    @PostMapping(value = "/elephant") // {"name":"animal1","zone":{"zoneId":1}}
     public ResponseEntity<String> addElephant(@RequestBody Elephant elephant){
         System.out.println("serivce elephant: " + elephant);
         animalService.save(elephant);
         return new ResponseEntity<>("Animal added." + System.lineSeparator() + elephant.toString(), HttpStatus.OK);
     }
 
-    @PostMapping(value = "/lion")
+    @PostMapping(value = "/lion")  // {"name":"animal1","zone":{"zoneId":1}}
     public ResponseEntity<String> addLion(@RequestBody Lion lion){
         System.out.println("serivce elephant: " + lion);
         animalService.save(lion);
         return new ResponseEntity<>("Animal added." + System.lineSeparator() + lion.toString(), HttpStatus.OK);
     }
 
-    @PostMapping(value = "/rabbit")
+    @PostMapping(value = "/rabbit") // {"name":"animal1","zone":{"zoneId":1}}
     public ResponseEntity<String> addLion(@RequestBody Rabbit rabbit){
         System.out.println("serivce elephant: " + rabbit);
         animalService.save(rabbit);
